@@ -1,0 +1,37 @@
+<div class="detail-section">
+    <div class="container-fluid">
+    
+    
+
+        <img src="{{ product?.imageUrl }}" class="detail-img">
+        <h3> {{ product?.name }} </h3>
+        
+        <p>Post Created: {{ product?.dateCreated}} </p>
+        <p>Last Updated: {{ product?.dateUpdated }} </p>
+
+        <div class="price">
+            <p> {{ product?.price | currency: 'EUR' }}</p>
+        </div>
+        <button (click)="addToCart();" class="btn btn-primary btn-sm"> Add to cart</button>
+        
+        <hr>
+        <h4 class="post-description">Description</h4>
+        <p>{{ product?.description }}</p>
+
+        <h4 class="post-location">Location</h4>
+        <p>{{ product?.location }}</p>
+
+        <h4 class="post-delivery">Delivery</h4>
+        <p>{{ product?.deliveryMethod }}</p>
+
+        <h4 class="post-delivery">Original Boxes</h4>
+        <p>{{ product?.ogBoxes }}</p>
+
+        
+
+
+    
+        <a routerLink="/products" class="mt-5"> Back to Posts</a>
+
+    </div>
+</div>

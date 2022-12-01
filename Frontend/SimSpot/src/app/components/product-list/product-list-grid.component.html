@@ -1,0 +1,50 @@
+<div class="main-content">
+
+    <aside class="menu-sidebar mx-auto d-lg-block">
+        <app-category-menu></app-category-menu>
+    </aside>
+
+    <div class="section-content section-content-p30 justify-content-between">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+
+                <div *ngFor="let tempProduct of products" class="col-md-3 justify-content-between">
+                    <div class="product-box">
+
+                        
+                        <img src="{{tempProduct.imageUrl}}" class="" routerLink="/products/{{ tempProduct.id }}">
+                        
+                        <h1 routerLink="/products/{{ tempProduct.id }}" >{{ tempProduct.name }}</h1>
+                        
+                        <span>{{ tempProduct.description }}</span>
+
+                        <div class="price"> {{tempProduct.price | currency: 'EUR' }}</div>
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm"> Add to cart</button>
+                    </div>
+
+                </div>
+
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert"> No products
+                    found.
+                </div>
+
+            </div>
+
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 3%">
+                                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                                    [collectionSize]="theTotalElements" (pageChange)="listProducts()">
+                                </ngb-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

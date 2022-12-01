@@ -1,0 +1,82 @@
+<section class="h-100" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100 text-center">
+            <div class="col-10 text-center">
+
+                <div class="justify-content-between align-items-center mb-4 text-center">
+                    <h3 class="fw-normal mb-0 text-black text-center">New Post</h3>
+                </div>
+                <div>
+                    <div class="submit-form">
+                        <div *ngIf="!submitted">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" required [(ngModel)]="product.name"
+                                    name="name" />
+                            </div>
+
+                            <!-- <label for="title">Brand</label>
+                            <select class="form-select" aria-label="Default select example" required [(ngModel)]="product.category_id">
+                                <option value="1">Fanatec</option>
+                                <option value="3">Logitech</option>
+                                <option value="4">Thrustmaster</option>
+                                <option value="5">Sim Cube</option>
+                                <option value="6">Moza</option>
+                              </select> -->
+
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="5" name="description" [(ngModel)]="product.description"></textarea>
+                                <!-- <input class="form-control" id="description" required [(ngModel)]="product.description"
+                                    name="description" /> -->
+                            </div>
+
+                            <!-- <div class="form-group">
+                                <label for="description">Image URL</label>
+                                <input input type ="url"class="form-control" id="imageUrl" required [(ngModel)]="product.imageUrl"
+                                    name="imageUrl" />
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="description">Location</label>
+                                <input input type="text" class="form-control" id="Location" required
+                                    [(ngModel)]="product.location" name="Location" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Price</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                    <input type="number" min="1" class="form-control" id="price" required
+                                        [(ngModel)]="product.price" name="price" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Delivery Method</label>
+                                <input class="form-control" id="deliveryMethod" required
+                                    [(ngModel)]="product.deliveryMethod" name="deliveryMethod" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Original Boxes</label>
+                                <input class="form-control" id="ogBoxes" required [(ngModel)]="product.ogBoxes"
+                                    name="ogBoxes" />
+                            </div>
+
+
+                            <button (click)="saveProduct()" class="btn btn-success">Submit</button>
+                        </div>
+
+                        <div *ngIf="submitted">
+                            <h4>Post was submitted successfully!</h4>
+                            <button class="btn btn-success" (click)="newProduct()">Add Listing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

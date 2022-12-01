@@ -1,0 +1,13 @@
+ <table class ='table'>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <tbody>
+        <tr *ngFor="let tempProduct of products">
+            <td class ="align-middle"><img src="{{ tempProduct.imageUrl }}" height= "100"/></td>
+            <td class ="align-middle">{{tempProduct.name}}</td>
+            <td class ="align-middle">{{tempProduct.description}}</td>
+            <td class ="align-middle">{{tempProduct.price | currency: 'EUR' }}</td>
+        </tr>
+    </tbody>
+</div>
+</table>
+

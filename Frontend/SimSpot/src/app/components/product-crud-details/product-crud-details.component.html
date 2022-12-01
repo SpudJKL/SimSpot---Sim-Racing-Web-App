@@ -1,0 +1,90 @@
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-50 py-1">
+    <div class="row d-flex justify-content-center align-items-center h-100 text">
+      <div class="col-10">
+
+        <div class="d-flex  align-items-center mb-4 text-center">
+          <h3 class="fw-normal mb-0 text-black"></h3>
+        </div>
+
+
+        <div *ngIf="viewMode; else editable">
+          <div *ngIf="currentProduct.id">
+            <h4>Product</h4>
+
+            
+              <img src="{{ currentProduct.imageUrl }}" class="">
+            
+
+            <div>
+              <label><strong>Name:</strong></label> {{ currentProduct.name }}
+            </div>
+            <div>
+              <label><strong>Description:</strong></label>
+              {{ currentProduct.description }}
+            </div>
+
+            <div>
+              <label><strong>Price:</strong></label>
+              {{ currentProduct.price }}
+            </div>
+
+            <div>
+              <label><strong>Location:</strong></label>
+              {{ currentProduct.location }}
+            </div>
+
+            <button type="" class="btn btn-primary btn-sm" routerLink="/Products/{{ currentProduct.id }}">
+              Edit
+            </button>
+
+          </div>
+
+          <div *ngIf="!currentProduct">
+            <br />
+            <p>Please click on a Product</p>
+          </div>
+        </div>
+
+        <ng-template #editable>
+          <div *ngIf="currentProduct.id" class="edit-form">
+            <h4>Product</h4>
+            <img src="{{ currentProduct.imageUrl }}" class="">
+
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="currentProduct.name" name="name" />
+              </div>
+
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control" id="price" [(ngModel)]="currentProduct.price" name="price" />
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="5" name="description" [(ngModel)]="currentProduct.description"></textarea>
+              </div>
+            </form>
+            <div class="justify-content-center    text-center">
+              <button class="btn btn-primary btn-sm " (click)="deleteProduct()">
+                Delete
+              </button>
+
+              <button type="submit" class="btn btn-primary btn-sm" (click)="updateProduct()">
+                Update
+              </button>
+              <p>{{ message }}</p>
+            </div>
+          </div>
+
+          <div *ngIf="!currentProduct.id">
+            <br />
+            <p>Cannot access this Product...</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

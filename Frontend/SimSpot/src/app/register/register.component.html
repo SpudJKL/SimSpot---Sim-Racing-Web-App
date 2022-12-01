@@ -1,0 +1,61 @@
+<body class="text-center">
+    <main class="form-signin w-100% m-auto">
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <a href="">
+                <img class="mb-4" src="assets/LOGO.svg" alt="" width="100" height="150">
+            </a>
+            <h1 class="h3 mb-3 fw-normal">Sign up</h1>
+
+            <div class="form-floating">
+                <input type="text" name="username" class="form-control" id="floatingInput" [(ngModel)]="form.username"
+                    required minlength="3" maxlength="20" #username="ngModel">
+                <label for="floatingInput">Username</label>
+                <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                    <div *ngIf="username.errors['required']">Username is required</div>
+                    <div *ngIf="username.errors['minlength']">
+                        Username must be at least 3 characters
+                    </div>
+                    <div *ngIf="username.errors['maxlength']">
+                        Username must be at most 20 characters
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" name="email" class="form-control" id="floatingInput" [(ngModel)]="form.email"
+                    required minlength="3" maxlength="200" #email="ngModel">
+                <label for="floatingInput">Email address</label>
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                    <div *ngIf="email.errors['required']">Email is required</div>
+                    <div *ngIf="email.errors['email']">
+                        Email must be a valid email address
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" name="email" class="form-control" id="floatingPassword" [(ngModel)]="form.password"
+                    required minlength="6" maxlength="20" #password="ngModel">
+                <label for="floatingPassword">Password</label>
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">
+                        Password must be at least 6 characters
+                    </div>
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+            <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            <p class="mt-5 mb-3 text-muted">&copy; Sim Spot 2022</p>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+            </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            Your registration is successful!
+        </div>
+
+    </main>
+</body>

@@ -1,0 +1,32 @@
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100 tex">
+      <div class="col-10">
+
+        <div class="d-flex  align-items-center mb-4 text-center">
+          <h3 class="fw-normal mb-0 text-black"></h3>
+        </div>
+
+
+        <div class="list row">
+          <div class="col-md-8">
+
+          </div>
+          <div class="col-md-6">
+            <h4>Product List</h4>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let product of products; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveProduct(product, i)">
+                {{ product.name }}
+
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <app-product-crud-details [viewMode]="true" [currentProduct]="currentProducts"></app-product-crud-details>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</section>
