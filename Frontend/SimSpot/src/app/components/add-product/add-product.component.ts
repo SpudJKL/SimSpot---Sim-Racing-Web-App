@@ -22,12 +22,11 @@ export class AddProductComponent implements OnInit {
     ogBoxes: false,
     dateCreated: undefined,
     dateUpdated: undefined,
-    
   };
   
   submitted = false;
 
-  productCategories: Category[] = [];
+  
 
   constructor(private productCRUD: productCRUD,
     productService: ProductService) { }
@@ -48,11 +47,13 @@ export class AddProductComponent implements OnInit {
       ogBoxes: this.product.ogBoxes,
       dateUpdated: new Date(),
     
+    
     };
 
     this.productCRUD.create(data)
       .subscribe({
         next: (res) => {
+          console.log(this.test)
           console.log(res);
           this.submitted = true;
         },
@@ -73,13 +74,17 @@ export class AddProductComponent implements OnInit {
       ogBoxes: false,
       dateCreated: new Date(),
       dateUpdated: undefined,
+      category: this.test
       
     };
   }
 
-  test = "";
+  test = undefined;
   
-
+  onSelected(value): void {
+		this.test = value;
+    console.log(value)
+  }
 
 
 

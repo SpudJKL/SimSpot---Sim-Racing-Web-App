@@ -11,5 +11,6 @@ export class Product {
         ogBoxes?: boolean;
         dateCreated?: Date;
         dateUpdated?: Date;
+        category?: number;
           
 }

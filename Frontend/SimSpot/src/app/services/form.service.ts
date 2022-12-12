@@ -10,6 +10,11 @@ import { County } from '../common/county';
 })
 export class FormService {
 
+  // private countriesUrl = "http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/countries";
+  // private countiesUrl = "http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/counties";
+
+
+  
   private countriesUrl = "http://localhost:8080/api/countries";
   private countiesUrl = "http://localhost:8080/api/counties";
 

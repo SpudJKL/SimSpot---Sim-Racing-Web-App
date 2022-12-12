@@ -42,6 +42,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
           this.email = this.tokenStorage.getUser().email;
           this.roles = this.tokenStorage.getUser().roles;
           this.storage.setItem('userEmail', JSON.stringify(this.email));
+          console.log(this.email);
           this.reloadPage();
         },
         error: err => {

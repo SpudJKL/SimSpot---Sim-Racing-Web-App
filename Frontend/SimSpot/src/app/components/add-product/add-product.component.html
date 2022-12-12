@@ -16,13 +16,15 @@
                             </div>
 
                             <!-- <label for="title">Brand</label>
-                            <select class="form-select" aria-label="Default select example" required [(ngModel)]="product.category_id">
-                                <option value="1">Fanatec</option>
-                                <option value="3">Logitech</option>
-                                <option value="4">Thrustmaster</option>
-                                <option value="5">Sim Cube</option>
-                                <option value="6">Moza</option>
+                            <select class="form-select" #brand (change)="onSelected(brand.value)" aria-label="Default select example" required [(ngModel)]="product.category">
+                                <option value=1>Fanatec</option>
+                                <option value=3>Logitech</option>
+                                <option value=4>Thrustmaster</option>
+                                <option value=5>Sim Cube</option>
+                                <option value=6>Moza</option>
                               </select> -->
+
+                        
 
                             <div class="form-group">
                                 <label for="description">Description</label>

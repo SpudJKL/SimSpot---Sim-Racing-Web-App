@@ -5,6 +5,8 @@ import { Product } from '../common/product';
 
 
 
+// const baseUrl = 'http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/products';
+
 const baseUrl = 'http://localhost:8080/api/products';
 
 @Injectable({

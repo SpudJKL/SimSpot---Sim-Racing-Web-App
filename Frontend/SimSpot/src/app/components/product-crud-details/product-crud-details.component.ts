@@ -26,6 +26,7 @@ export class ProductCrudDetailsComponent implements OnInit {
     ogBoxes: false,
     dateCreated: undefined,
     dateUpdated: undefined,
+    category: undefined
     
   };
   

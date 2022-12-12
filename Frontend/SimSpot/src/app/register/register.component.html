@@ -22,6 +22,36 @@
             </div>
 
             <div class="form-floating">
+                <input type="text" name="firstName" class="form-control" id="floatingInput" [(ngModel)]="form.firstName"
+                    required minlength="2" maxlength="30" #firstName="ngModel">
+                <label for="floatingInput">First Name</label>
+                <div class="alert-danger" *ngIf="firstName.errors && f.submitted">
+                    <div *ngIf="firstName.errors['required']">First Name is required</div>
+                    <div *ngIf="firstName.errors['minlength']">
+                        First Name must be at least 3 characters
+                    </div>
+                    <div *ngIf="firstName.errors['maxlength']">
+                        First Name must be at most 20 characters
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" name="lastName" class="form-control" id="floatingInput" [(ngModel)]="form.lastName"
+                    required minlength="2" maxlength="30" #lastName="ngModel">
+                <label for="floatingInput">Last Name</label>
+                <div class="alert-danger" *ngIf="lastName.errors && f.submitted">
+                    <div *ngIf="lastName.errors['required']">Last Name is required</div>
+                    <div *ngIf="lastName.errors['minlength']">
+                        Last Name must be at least 3 characters
+                    </div>
+                    <div *ngIf="lastName.errors['maxlength']">
+                        Last Name must be at most 20 characters
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-floating">
                 <input type="text" name="email" class="form-control" id="floatingInput" [(ngModel)]="form.email"
                     required minlength="3" maxlength="200" #email="ngModel">
                 <label for="floatingInput">Email address</label>

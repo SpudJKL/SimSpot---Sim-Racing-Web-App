@@ -8,8 +8,8 @@ import { OrderHistory } from '../common/order-history';
 })
 export class OrderHistoryService {
 
+  // private orderUrl = "http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/orders"
   private orderUrl = "http://localhost:8080/api/orders"
-
   constructor(private httpClient: HttpClient) { }
 
 

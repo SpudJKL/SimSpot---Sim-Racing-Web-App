@@ -37,6 +37,9 @@ export class CheckoutComponent implements OnInit {
 
   isDisabled: boolean = false;
 
+  storage: Storage = sessionStorage;
+  
+
   // Stripe api
   stripe = Stripe(environment.stripePublishableKey);
 
@@ -56,7 +59,7 @@ export class CheckoutComponent implements OnInit {
     this.setupStripePaymentForm();
 
     this.reviewCartDetails();
-
+    const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
     this.checkoutFormGroup = this.formBuilder.group({
 
       customer: this.formBuilder.group({
@@ -68,7 +71,7 @@ export class CheckoutComponent implements OnInit {
         Validators.minLength(2),
         SimSpotValidators.notOnlyWhitespace
         ]),
-        email: new FormControl('', [Validators.required,
+        email: new FormControl(theEmail, [Validators.required,
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
 

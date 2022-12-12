@@ -12,9 +12,15 @@ export class ProductService {
   
 
 
+  // private baseUrl = 'http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/products';
+  // private categoryUrl ="http://simspot-env.eba-sctpzcfa.us-east-1.elasticbeanstalk.com/api/category"
+
+
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl ="http://localhost:8080/api/category"
 
+
+  private orderUrl = "http://localhost:8080/api/orders"
   constructor(private httpClient: HttpClient) { }
 
   getProductList(theCategoryID: number): Observable<Product[]> {
