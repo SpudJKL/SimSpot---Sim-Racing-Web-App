@@ -20,6 +20,6 @@ public class MyAppConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry cors) {
-        cors.addMapping("/**");
+        cors.addMapping("/**").allowedOrigins(theAllowedOrigins);
     }
 }
